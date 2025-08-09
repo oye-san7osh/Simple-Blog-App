@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    User Register
+{% endblock %}
+
+{% block content %}
+    <h2>Create a New Account:</h2>
+
+    <form action="{% url 'users:user-register' %}" method = "POST">
+        {% csrf_token %}
+
+        <div class="user-register">
+
+            <div class="username">
+                {{ myform.username.label_tag }}
+                {{ myform.username }}
+            </div>
+
+            <div class="email">
+                {{ myform.email.label_tag }}
+                {{ myform.email }}
+            </div>
+
+            <div class="password1">
+                {{ myform.password1.label_tag }}
+                {{ myform.password1 }}
+            </div>
+
+            <div class="password2">
+                {{ myform.password2.label_tag }}
+                {{ myform.password2 }}
+            </div>
+        </div>
+
+        <button type = "submit">Register</button>
+    </form>
+
+{% endblock %}

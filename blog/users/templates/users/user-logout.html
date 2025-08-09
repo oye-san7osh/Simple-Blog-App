@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    User logout
+{% endblock %}
+
+{% block content %}
+    <h2>
+        Are you sure, you want to <strong>logout</strong>
+    </h2>
+
+    <form action="{% url 'users:user-logout'%}" method = "POST">
+        {% csrf_token %}
+
+        <button type = "submit">Logout</button>
+        &nbsp; &nbsp;
+        <a href="/" class = "btn">No</a>
+    </form>
+
+{% endblock %}
