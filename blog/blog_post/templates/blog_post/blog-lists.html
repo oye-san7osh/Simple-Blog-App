@@ -5,5 +5,25 @@
 {% endblock %}
 
 {% block content %}
-    <h1>This will show blog post in list format.</h1>
+    <h2>Xtra-Dose:Blog Post</h2>
+    {% for mylist in postlist %}
+        <ul>
+            <li>
+                <p>
+                    Post Name:
+                    <a href="{% url 'blog:blog-detail' mylist.slug_link %}">
+                        <strong>{{ mylist.post_name }}</strong>
+                    </a> &nbsp; &nbsp;
+                    <a href="{% url 'blog:update-blog' mylist.slug_link %}">
+                        <strong>Update</strong>
+                    </a> &nbsp; &nbsp;
+                    <a href="{% url 'blog:delete-blog' mylist.slug_link %}">
+                        <strong>Delete</strong>
+                    </a> &nbsp; &nbsp;
+                </p>
+            </li>
+        </ul>
+    {% empty %}
+        <p>Blog Post Not Found.</p>
+    {% endfor %}
 {% endblock %}

@@ -45,5 +45,5 @@ def user_logout(request):
     
     if request.method == "POST":
         logout(request)
-        return redirect('blog:blog-list')
+        return redirect('users:user-login')
     return render(request, 'users/user-logout.html')

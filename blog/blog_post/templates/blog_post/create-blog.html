@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Blog Detail
+{% endblock %}
+
+{% block content %}
+    <h2>Xtra-Dose:Create New Blog Post:</h2>
+        <form action="{% url 'blog:create-blog' %}" method = "POST">
+            {% csrf_token %}
+
+            <p>Post Name: <strong>{{ form.post_name }}</strong></p>
+            <p>Post Detail: <strong>{{ form.post_detail}}</strong></p>
+
+            <button type = "submit">
+               Create Post
+            </button>
+        </form>
+{% endblock %}

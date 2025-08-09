@@ -6,4 +6,13 @@
 
 {% block content %}
     <h2>This page will serve as homepage for blog app.</h2>
+
+    {% if not user.is_authenticated %}
+        <p>
+            <a href="{% url 'users:user-register' %}">Create a Account</a>
+        </p>
+        <p>
+            <a href="{% url 'users:user-login' %}">Already have Account</a>
+        </p>
+    {% endif %}
 {% endblock %}
